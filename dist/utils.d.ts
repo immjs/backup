@@ -1,2 +1,2 @@
-declare const p9e: (templData: TemplateStringsArray | string, ...vals: unknown[]) => string;
+declare const p9e: (data: TemplateStringsArray | string, ...args: (string | undefined)[]) => never;
 export { p9e };

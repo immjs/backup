@@ -218,19 +218,31 @@ You can get information on how to use it on https://strftime.org/
         if (!v) console.warn(`${chalk.yellow.bold('[WARN]')} Glob #${i} of ${app.name}.move does not have an entry for ${sysMap[sys].slice(0, sysMap[sys].length - 2)} or ${sysMap[sys][sysMap[sys].length - 2]}`);
         return v;
       }).filter((v) => v != null) as string[];
-      const toCopy = await Promise.all(
-        globs.map(async (globPattern) => {
-          await new Promise((res, rej) => glob(globPattern, (er, files) => {
-            if (er) return rej(er);
-            return res(files);
-          }));
+      const actualGlobs = await Promise.all(
+        globs.map(async (currentGlob) => {
+          const globNormal = await execa('echo', [currentGlob], { shell: true }).then(({ stdout }) => {
+            console.log(p9e(stdout.trim(), '/'));
+            return p9e(stdout.trim(), '/');
+          });
+          console.log({ currentGlob, globNormal });
+          return globNormal;
         }),
       );
-      const actualPath = await execa('echo', []).then(({ stdout }) => stdout.map((path) => p9e));
+      const toCopy = await Promise.all(
+        globs.map(async (globPattern) => { // just let me return my await already
+          const toReturn2 = await new Promise((res, rej) => glob(
+            globPattern, (er, files) => {
+              if (er) return rej(er);
+              return res(files);
+            },
+          ));
+          return toReturn2;
+        }),
+      );
       /* toCopy.forEach(() => {
         await fse.copy();
       }); */
-      console.log(globs, toCopy);
+      console.log(actualGlobs, toCopy);
     }));
     return toReturn;
   }));

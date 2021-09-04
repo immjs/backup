@@ -1,5 +1,5 @@
 declare const defaults: {
-    location: string;
+    location: never;
     filename: string;
     compression: string;
 };
