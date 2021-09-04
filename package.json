@@ -1,0 +1,56 @@
+{
+  "name": "backup",
+  "version": "1.0.0",
+  "description": "Backs up my system",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "ttsc",
+    "backup": "npm run --silent build && node ./dist/backup/backup.js",
+    "restore": "npm run --silent build && node ./dist/restore/restore.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/informathemusic/backup.git"
+  },
+  "author": "InforMatheMusic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/informathemusic/backup/issues"
+  },
+  "homepage": "https://github.com/informathemusic/backup#readme",
+  "dependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/glob": "^7.1.4",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.7.1",
+    "@types/node-fetch": "^2.5.12",
+    "@types/picomatch": "^2.2.6",
+    "@types/strftime": "^0.9.3",
+    "@types/xmldom": "^0.1.31",
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
+    "enquirer": "^2.3.6",
+    "execa": "^5.1.1",
+    "fast-glob": "^3.2.7",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "ora": "^6.0.0",
+    "picomatch": "^2.3.0",
+    "strftime": "^0.10.0",
+    "typescript": "^4.3.5",
+    "typescript-is": "^0.18.3",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-plugin-import": "^2.24.1",
+    "ttypescript": "^1.5.12"
+  }
+}

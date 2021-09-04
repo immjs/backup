@@ -1,0 +1,39 @@
+apps:
+  - id: firefox
+    name: Mozilla Firefox
+    install:
+      type: packagemanager
+      value:
+        all: firefox
+    move:
+      - glob:
+          linux: ~/.mozilla/firefox/*.default-release
+          win32: '%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release'
+        deleteNew: true
+  - id: code
+    name: Visual Studio Code
+    install:
+      type: snap
+      value:
+        name: code
+        classic: true
+  - id: nvm
+    name: NVM (Node + NPM)
+    install:
+      type: shell
+      value:
+        url: https://raw.github.com/nvm-sh/nvm/master/install.sh
+  - id: zsh
+    name: Zsh
+    install:
+      type: packagemanager
+      value:
+        all: zsh
+  - id: omz
+    name: Oh My Zsh
+    install:
+      type: shell
+      value:
+        url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+storage: []
