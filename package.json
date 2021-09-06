@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "ttsc",
-    "backup": "npm run --silent build && node ./dist/backup/backup.js",
+    "backup": "npm run --silent build && node ./dist/backup/program.js",
     "restore": "npm run --silent build && node ./dist/restore/restore.js"
   },
   "repository": {

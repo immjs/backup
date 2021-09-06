@@ -8,7 +8,7 @@ apps:
     move:
       - glob:
           linux: ~/.mozilla/firefox/*.default-release
-          win32: '%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release'
+          win32: '%UserProfile%/AppData/Roaming/Mozilla/Firefox/Profiles/*.default-release'
         deleteNew: true
   - id: code
     name: Visual Studio Code

@@ -1,3 +1,7 @@
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { App } from './types.js';
+
 const pathSep = process.platform === 'win32' ? '\\' : '/';
 // platformize, transforms path separators to OS specific
 const p9eStr = (str: string, sep?: string) => str.replace(/\/|\\/g, sep || pathSep);
@@ -14,4 +18,7 @@ const templatize = <
   };
 const p9e = templatize(p9eStr);
 
-export { p9e };
+const fileDirname = dirname(fileURLToPath(import.meta.url));
+const getAppMap = (apps: App[]) => new Map(apps.map((v: App) => [v.id, { ...v }]));
+
+export { p9e, fileDirname, getAppMap };

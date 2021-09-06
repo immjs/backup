@@ -1,16 +1,18 @@
-type PackageManagers = 'apt'
+export type PackageManagers = 'apt'
 | 'rpm'
 | 'dnf'
 | 'yay'
 | 'pacman'
-| 'all';
+| 'all'
+| 'winget';
 
-interface PackageManagerInstall {
+// The following contain the different type of installs
+export interface PackageManagerInstall {
   type: 'packagemanager';
   value: Partial<Record<PackageManagers, string>>;
 }
 
-interface SnapInstall {
+export interface SnapInstall {
   type: 'snap';
   value: {
     name: string;
@@ -18,24 +20,24 @@ interface SnapInstall {
   };
 }
 
-interface ShellInstallRemoteScript {
+export interface ShellInstallRemoteScript {
   url: string
   nonRoot?: boolean;
 }
 
-interface ShellInstallCommands {
+export interface ShellInstallCommands {
   gitURI?: string;
   tar?: string;
   commands: string;
   nonRoot?: boolean;
 }
 
-interface ShellInstall {
+export interface ShellInstall {
   type: 'shell';
-  value: ShellInstallCommands | ShellInstallRemoteScript;
+  value: ShellInstallRemoteScript | ShellInstallCommands;
 }
 
-type Install = PackageManagerInstall
+export type Install = PackageManagerInstall
 | SnapInstall
 | ShellInstall;
 
@@ -59,18 +61,28 @@ export type MaybeArray<T> = T | T[];
 
 export interface Move {
   glob: MaybeArray<string | PlatformDependant<string>>;
-  deleteNew?: boolean;
+  deleteNew?: boolean | 'prompt';
+  overwrite?: boolean | 'prompt';
 }
+
 export interface App {
   id: string;
   name: string;
   dependencies?: string | string[];
   install: Install | Install[];
   postinstall?: string;
-  move?: Move[]
+  move?: Move[];
 }
 
 export interface Data {
   apps: App[];
-  storage: string[];
+  storage: Move[];
+}
+
+export interface Settled {
+  programs: string[];
+  fileLocation: string;
+  location?: string;
+  filename?: string;
+  compression: 'zip' | 'tgz' | 'none';
 }
