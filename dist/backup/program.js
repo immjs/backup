@@ -90,7 +90,7 @@ else {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _2233(object) { ; if (object !== "packagemanager")
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _2286(object) { ; if (object !== "packagemanager")
                 return { message: "validation failed at " + path.join(".") + ": expected string 'packagemanager'", path: path.slice(), reason: { type: "string-literal", value: "packagemanager" } };
             else
                 return null; } function _undefined(object) { ; if (object !== undefined)
@@ -100,7 +100,7 @@ else {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _2250(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _2303(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("all" in object) {
                     path.push("all");
@@ -157,11 +157,11 @@ else {
                     if (error)
                         return error;
                 }
-            } return null; } function _473(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return null; } function _476(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("type" in object) {
                     path.push("type");
-                    var error = _2233(object["type"]);
+                    var error = _2286(object["type"]);
                     path.pop();
                     if (error)
                         return error;
@@ -171,20 +171,20 @@ else {
             } {
                 if ("value" in object) {
                     path.push("value");
-                    var error = _2250(object["value"]);
+                    var error = _2303(object["value"]);
                     path.pop();
                     if (error)
                         return error;
                 }
                 else
                     return { message: "validation failed at " + path.join(".") + ": expected 'value' in object", path: path.slice(), reason: { type: "missing-property", property: "value" } };
-            } return null; } function _2252(object) { ; if (object !== "snap")
+            } return null; } function _2305(object) { ; if (object !== "snap")
                 return { message: "validation failed at " + path.join(".") + ": expected string 'snap'", path: path.slice(), reason: { type: "string-literal", value: "snap" } };
             else
                 return null; } function _boolean(object) { ; if (typeof object !== "boolean")
                 return { message: "validation failed at " + path.join(".") + ": expected a boolean", path: path.slice(), reason: { type: "boolean" } };
             else
-                return null; } function _2254(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+                return null; } function _2307(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("name" in object) {
                     path.push("name");
@@ -203,11 +203,11 @@ else {
                     if (error)
                         return error;
                 }
-            } return null; } function _474(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return null; } function _477(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("type" in object) {
                     path.push("type");
-                    var error = _2252(object["type"]);
+                    var error = _2305(object["type"]);
                     path.pop();
                     if (error)
                         return error;
@@ -217,17 +217,17 @@ else {
             } {
                 if ("value" in object) {
                     path.push("value");
-                    var error = _2254(object["value"]);
+                    var error = _2307(object["value"]);
                     path.pop();
                     if (error)
                         return error;
                 }
                 else
                     return { message: "validation failed at " + path.join(".") + ": expected 'value' in object", path: path.slice(), reason: { type: "missing-property", property: "value" } };
-            } return null; } function _2255(object) { ; if (object !== "shell")
+            } return null; } function _2308(object) { ; if (object !== "shell")
                 return { message: "validation failed at " + path.join(".") + ": expected string 'shell'", path: path.slice(), reason: { type: "string-literal", value: "shell" } };
             else
-                return null; } function _2257(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+                return null; } function _2310(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("url" in object) {
                     path.push("url");
@@ -246,7 +246,7 @@ else {
                     if (error)
                         return error;
                 }
-            } return null; } function _2258(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return null; } function _2311(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("gitURI" in object) {
                     path.push("gitURI");
@@ -281,15 +281,15 @@ else {
                     if (error)
                         return error;
                 }
-            } return null; } function su__2257__2258_eu(object) { var conditions = [_2257, _2258]; for (const condition of conditions) {
+            } return null; } function su__2310__2311_eu(object) { var conditions = [_2310, _2311]; for (const condition of conditions) {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _475(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _478(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("type" in object) {
                     path.push("type");
-                    var error = _2255(object["type"]);
+                    var error = _2308(object["type"]);
                     path.pop();
                     if (error)
                         return error;
@@ -299,29 +299,29 @@ else {
             } {
                 if ("value" in object) {
                     path.push("value");
-                    var error = su__2257__2258_eu(object["value"]);
+                    var error = su__2310__2311_eu(object["value"]);
                     path.pop();
                     if (error)
                         return error;
                 }
                 else
                     return { message: "validation failed at " + path.join(".") + ": expected 'value' in object", path: path.slice(), reason: { type: "missing-property", property: "value" } };
-            } return null; } function su__473__474__475_eu(object) { var conditions = [_473, _474, _475]; for (const condition of conditions) {
+            } return null; } function su__476__477__478_eu(object) { var conditions = [_476, _477, _478]; for (const condition of conditions) {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function sa_su__473__474__475_eu_ea_476(object) { ; if (!Array.isArray(object))
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function sa_su__476__477__478_eu_ea_479(object) { ; if (!Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an array", path: path.slice(), reason: { type: "array" } }; for (let i = 0; i < object.length; i++) {
                 path.push("[" + i + "]");
-                var error = su__473__474__475_eu(object[i]);
+                var error = su__476__477__478_eu(object[i]);
                 path.pop();
                 if (error)
                     return error;
-            } return null; } function su__473__474__475_sa_su__473__474__475_eu_ea_476_476_476_eu(object) { var conditions = [_473, _474, _475, sa_su__473__474__475_eu_ea_476]; for (const condition of conditions) {
+            } return null; } function su__476__477__478_sa_su__476__477__478_eu_ea_479_479_479_eu(object) { var conditions = [_476, _477, _478, sa_su__476__477__478_eu_ea_479]; for (const condition of conditions) {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _1480(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _1688(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("aix" in object) {
                     path.push("aix");
@@ -498,18 +498,7 @@ else {
                     if (error)
                         return error;
                 }
-            } return null; } function su__string__1480_eu(object) { var conditions = [_string, _1480]; for (const condition of conditions) {
-                var error = condition(object);
-                if (!error)
-                    return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function sa_su__string__1480_eu_ea_1482(object) { ; if (!Array.isArray(object))
-                return { message: "validation failed at " + path.join(".") + ": expected an array", path: path.slice(), reason: { type: "array" } }; for (let i = 0; i < object.length; i++) {
-                path.push("[" + i + "]");
-                var error = su__string__1480_eu(object[i]);
-                path.pop();
-                if (error)
-                    return error;
-            } return null; } function su__string__1480_sa_su__string__1480_eu_ea_1482_1482_1482_eu(object) { var conditions = [_string, _1480, sa_su__string__1480_eu_ea_1482]; for (const condition of conditions) {
+            } return null; } function su__string__1688_eu(object) { var conditions = [_string, _1688]; for (const condition of conditions) {
                 var error = condition(object);
                 if (!error)
                     return null;
@@ -519,18 +508,18 @@ else {
                 return null; } function _true(object) { ; if (object !== true)
                 return { message: "validation failed at " + path.join(".") + ": expected true", path: path.slice(), reason: { type: "boolean-literal", value: true } };
             else
-                return null; } function _2260(object) { ; if (object !== "prompt")
+                return null; } function _2313(object) { ; if (object !== "prompt")
                 return { message: "validation failed at " + path.join(".") + ": expected string 'prompt'", path: path.slice(), reason: { type: "string-literal", value: "prompt" } };
             else
-                return null; } function su__15__17__2260_eu(object) { var conditions = [_false, _true, _2260]; for (const condition of conditions) {
+                return null; } function su__15__17__2313_eu(object) { var conditions = [_false, _true, _2313]; for (const condition of conditions) {
                 var error = condition(object);
                 if (!error)
                     return null;
-            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _479(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return { message: "validation failed at " + path.join(".") + ": there are no valid alternatives", path: path.slice(), reason: { type: "union" } }; } function _482(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("glob" in object) {
                     path.push("glob");
-                    var error = su__string__1480_sa_su__string__1480_eu_ea_1482_1482_1482_eu(object["glob"]);
+                    var error = su__string__1688_eu(object["glob"]);
                     path.pop();
                     if (error)
                         return error;
@@ -538,9 +527,17 @@ else {
                 else
                     return { message: "validation failed at " + path.join(".") + ": expected 'glob' in object", path: path.slice(), reason: { type: "missing-property", property: "glob" } };
             } {
+                if ("exclude" in object) {
+                    path.push("exclude");
+                    var error = su__string_sa__string_ea_11_11_11_eu(object["exclude"]);
+                    path.pop();
+                    if (error)
+                        return error;
+                }
+            } {
                 if ("deleteNew" in object) {
                     path.push("deleteNew");
-                    var error = su__15__17__2260_eu(object["deleteNew"]);
+                    var error = su__15__17__2313_eu(object["deleteNew"]);
                     path.pop();
                     if (error)
                         return error;
@@ -548,15 +545,15 @@ else {
             } {
                 if ("overwrite" in object) {
                     path.push("overwrite");
-                    var error = su__15__17__2260_eu(object["overwrite"]);
+                    var error = su__15__17__2313_eu(object["overwrite"]);
                     path.pop();
                     if (error)
                         return error;
                 }
-            } return null; } function sa__479_ea_479(object) { ; if (!Array.isArray(object))
+            } return null; } function sa__482_ea_482(object) { ; if (!Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an array", path: path.slice(), reason: { type: "array" } }; for (let i = 0; i < object.length; i++) {
                 path.push("[" + i + "]");
-                var error = _479(object[i]);
+                var error = _482(object[i]);
                 path.pop();
                 if (error)
                     return error;
@@ -592,7 +589,7 @@ else {
             } {
                 if ("install" in object) {
                     path.push("install");
-                    var error = su__473__474__475_sa_su__473__474__475_eu_ea_476_476_476_eu(object["install"]);
+                    var error = su__476__477__478_sa_su__476__477__478_eu_ea_479_479_479_eu(object["install"]);
                     path.pop();
                     if (error)
                         return error;
@@ -610,7 +607,7 @@ else {
             } {
                 if ("move" in object) {
                     path.push("move");
-                    var error = sa__479_ea_479(object["move"]);
+                    var error = sa__482_ea_482(object["move"]);
                     path.pop();
                     if (error)
                         return error;
@@ -622,7 +619,7 @@ else {
                 path.pop();
                 if (error)
                     return error;
-            } return null; } function _546(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
+            } return null; } function _745(object) { ; if (typeof object !== "object" || object === null || Array.isArray(object))
                 return { message: "validation failed at " + path.join(".") + ": expected an object", path: path.slice(), reason: { type: "object" } }; {
                 if ("apps" in object) {
                     path.push("apps");
@@ -636,14 +633,14 @@ else {
             } {
                 if ("storage" in object) {
                     path.push("storage");
-                    var error = sa__479_ea_479(object["storage"]);
+                    var error = sa__482_ea_482(object["storage"]);
                     path.pop();
                     if (error)
                         return error;
                 }
                 else
                     return { message: "validation failed at " + path.join(".") + ": expected 'storage' in object", path: path.slice(), reason: { type: "missing-property", property: "storage" } };
-            } return null; } var error = _546(object); return error; });
+            } return null; } var error = _745(object); return error; });
             return object;
         };
         const programs = Object.entries({
@@ -754,6 +751,7 @@ You can get information on how to use it on https://strftime.org/
             fileLocation: options.location || join(fileDirname, '../', strftime(p9e(prompted.location || defaults.location), currentDate), strftime(p9e(prompted.filename || defaults.filename), currentDate)),
             compression: options.compression || prompted.compression || defaults.compression,
         };
-        backup(settled, backupData);
+        const appTransferData = await backup(settled, backupData);
+        console.log(yaml.stringify(appTransferData));
     })();
 }

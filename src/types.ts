@@ -60,7 +60,8 @@ export type PlatformDependant<T> = Partial<Record<Platform, T>>;
 export type MaybeArray<T> = T | T[];
 
 export interface Move {
-  glob: MaybeArray<string | PlatformDependant<string>>;
+  glob: string | PlatformDependant<string>;
+  exclude?: MaybeArray<string>;
   deleteNew?: boolean | 'prompt';
   overwrite?: boolean | 'prompt';
 }
@@ -68,8 +69,8 @@ export interface Move {
 export interface App {
   id: string;
   name: string;
-  dependencies?: string | string[];
-  install: Install | Install[];
+  dependencies?: MaybeArray<string>;
+  install: MaybeArray<Install>;
   postinstall?: string;
   move?: Move[];
 }

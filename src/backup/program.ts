@@ -194,6 +194,7 @@ You can get information on how to use it on https://strftime.org/
       ),
       compression: options.compression || prompted.compression || defaults.compression,
     };
-    backup(settled, backupData);
+    const appTransferData = await backup(settled, backupData);
+    console.log(yaml.stringify(appTransferData));
   })();
 }

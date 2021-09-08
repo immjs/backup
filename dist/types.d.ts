@@ -30,15 +30,16 @@ export declare type Platform = NodeJS.Platform | 'unix' | 'unix-like' | 'linux' 
 export declare type PlatformDependant<T> = Partial<Record<Platform, T>>;
 export declare type MaybeArray<T> = T | T[];
 export interface Move {
-    glob: MaybeArray<string | PlatformDependant<string>>;
+    glob: string | PlatformDependant<string>;
+    exclude?: MaybeArray<string>;
     deleteNew?: boolean | 'prompt';
     overwrite?: boolean | 'prompt';
 }
 export interface App {
     id: string;
     name: string;
-    dependencies?: string | string[];
-    install: Install | Install[];
+    dependencies?: MaybeArray<string>;
+    install: MaybeArray<Install>;
     postinstall?: string;
     move?: Move[];
 }

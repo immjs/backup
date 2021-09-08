@@ -21,4 +21,18 @@ const p9e = templatize(p9eStr);
 const fileDirname = dirname(fileURLToPath(import.meta.url));
 const getAppMap = (apps: App[]) => new Map(apps.map((v: App) => [v.id, { ...v }]));
 
-export { p9e, fileDirname, getAppMap };
+const mapAsync = <
+  T,
+  Fn extends (v: T, i: number, a: T[]) => Promise<unknown>,
+  U = Fn extends (v: T, i: number, a: T[]) => Promise<(infer V)[]> ? V : never,
+>(
+    arr: T[],
+    callback: Fn,
+  ): Promise<U[]> => Promise.all<U>(arr.map(callback));
+
+export {
+  p9e,
+  fileDirname,
+  getAppMap,
+  mapAsync,
+};

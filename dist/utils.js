@@ -11,4 +11,5 @@ const templatize = (fn) => (data, ...args) => {
 const p9e = templatize(p9eStr);
 const fileDirname = dirname(fileURLToPath(import.meta.url));
 const getAppMap = (apps) => new Map(apps.map((v) => [v.id, Object.assign({}, v)]));
-export { p9e, fileDirname, getAppMap };
+const mapAsync = (arr, callback) => Promise.all(arr.map(callback));
+export { p9e, fileDirname, getAppMap, mapAsync, };

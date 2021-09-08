@@ -1,10 +1,11 @@
+import crypto from 'crypto-js';
 import execa from 'execa';
 import fse from 'fs-extra';
 import { join, basename } from 'path';
 import glob from 'glob';
 import ora from 'ora';
 import chalk from 'chalk';
-import { getAppMap } from '../utils.js';
+import { getAppMap, mapAsync } from '../utils.js';
 export default async (settled, backupData) => {
     settled.location = join(settled.fileLocation, '../');
     settled.filename = basename(settled.fileLocation);
@@ -27,14 +28,14 @@ export default async (settled, backupData) => {
         cygwin: ['linux', 'gnu/linux', 'unix-like'],
     })
         .map(([k, v]) => [k, [k, ...v, 'all']])); // Add itself and 'all' to the sysMap
-    const appTransferData = await Promise.all(settled.programs.map(async (appId) => {
+    const appTransferData = Object.fromEntries(await mapAsync(settled.programs, async (appId) => {
         const app = appMap.get(appId);
         if (app.move == null)
             app.move = [];
         if (!Array.isArray(app.move))
             app.move = [app.move];
         currentSpinner.text = `Copying app ${app.name}...`;
-        const toReturn = await Promise.all(app.move.map(async (move, moveIndex) => {
+        const toReturn = await mapAsync(app.move, async (move, moveIndex) => {
             const convertIfPlatformDependant = (v) => {
                 if (typeof v === 'string')
                     return [v];
@@ -64,18 +65,23 @@ export default async (settled, backupData) => {
                 }));
                 return toReturn2;
             }));
-            await Promise.all(toCopy.map(async (globResults, globIndex) => {
-                const toReturn2 = await Promise.all(globResults.map(async (globResult, globResultIndex) => {
-                    await fse.copy(globResult, join(tempFolder, 'apps', moveIndex.toString(), globIndex.toString(), globResultIndex.toString()));
-                }));
-                return toReturn2;
+            const actuallyCopy = async (globResult, currentRawGlobPattern) => {
+                await fse.copy(globResult, join(tempFolder, 'apps', app.id, crypto.enc.Hex.stringify(crypto.SHA256(currentRawGlobPattern)).slice(0, 6), crypto.enc.Hex.stringify(crypto.SHA256(globResult)).slice(0, 6)));
+                return [crypto.enc.Hex.stringify(crypto.SHA256(globResult)).slice(0, 6), globResult];
+            };
+            const results = await Promise.all(toCopy.map(async (globResults, globIndex) => {
+                const toReturn2 = await Promise.all(globResults.map(async (globResult) => actuallyCopy(globResult, globs[globIndex])));
+                return Object.fromEntries(toReturn2);
             }));
             currentSpinner.succeed(`Successfully copied ${app.name}! ${moveIndex !== app.move.length - 1 ? 'Moving on...' : 'All apps copied!'}`);
             if (moveIndex !== app.move.length - 1)
                 currentSpinner = ora({ text: '', spinner: 'bouncingBall' }).start();
-            return toCopy;
-        }));
-        console.log(toReturn);
-        return toReturn;
+            return results;
+        });
     }));
+    console.log(toReturn);
+    return [app.id, toReturn];
 };
+;
+return appTransferData;
+;

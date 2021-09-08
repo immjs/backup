@@ -2,7 +2,32 @@ The backup utility
 ===
 This modular backup utility will help you backup what's essential to you in a few keystrokes!
 
-## Overall data structure (to be used in `data.yml`) and types (defined in `types.ts`)
+## Overall data structure
+### to be used in data.yml
+---
+`data.yml` is expected to host the `Data` interface. Here is a sample, more details about certain types can be found later on.
+
+```yaml
+apps: # `App[]`
+  - id: firefox # Short, concise name
+    name: Mozilla Firefox # Full name, to be displayed on terminal
+    install: # `Install | Install[]`, all available installs are noted down below
+      type: packagemanager
+      value: # `Record<PackageManagers, string>`
+        all: firefox
+    move: # Move[]
+      - glob: # string | PlatformDependant
+          unix-like: ~/.mozilla/firefox/*.default-release
+          win32: '%UserProfile%/AppData/Roaming/Mozilla/Firefox/Profiles/*.default-release' # You won't be able to use Illegal Characters
+        deleteNew: true # Deletes all occurences of glob above before copying the new ones over
+
+storage: 
+  - glob: ''
+
+```
+
+## Types
+### as defined per types.ts
 ---
 
 
